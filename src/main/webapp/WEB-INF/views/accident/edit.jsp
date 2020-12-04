@@ -29,6 +29,16 @@
             </div>
         </div>
 
+        <div class="form-group">
+            <div class="col-md-4">
+                <select name="type.id">
+                    <c:forEach var="type" items="${types}" >
+                        <option value="${type.id}">${type.name}</option>
+                    </c:forEach>
+                </select>
+            </div>
+        </div>
+
         <!-- Text input-->
         <div class="form-group">
             <div class="col-md-4">

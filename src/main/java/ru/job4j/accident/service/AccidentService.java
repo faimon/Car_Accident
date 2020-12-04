@@ -2,9 +2,11 @@ package ru.job4j.accident.service;
 
 import org.springframework.stereotype.Service;
 import ru.job4j.accident.model.Accident;
+import ru.job4j.accident.model.AccidentType;
 import ru.job4j.accident.repository.AccidentMem;
 
 import java.util.Collection;
+import java.util.List;
 
 @Service
 public class AccidentService {
@@ -28,5 +30,9 @@ public class AccidentService {
 
     public void update(Accident accident) {
         accidentMem.update(accident);
+    }
+
+    public List<AccidentType> getTypes() {
+        return accidentMem.getTypes();
     }
 }

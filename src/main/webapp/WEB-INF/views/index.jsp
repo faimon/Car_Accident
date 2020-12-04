@@ -39,6 +39,7 @@
                 <thead>
                 <tr>
                     <th class="col">Вид нарушения</th>
+                    <th class="col">Тип нарушения</th>
                     <th class="col">Описание нарушения</th>
                     <th class="col">Место нарушения</th>
                     <th class="col">Действие</th>
@@ -48,6 +49,7 @@
                 <c:forEach items="${accidents}" var="accident">
                     <tr>
                         <td><c:out value="${accident.name}"/></td>
+                        <td><c:out value="${accident.type.name}"/></td>
                         <td><c:out value="${accident.text}"/></td>
                         <td><c:out value="${accident.address}"/></td>
                         <td>
