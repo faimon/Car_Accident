@@ -14,6 +14,11 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <style><%@include file="/WEB-INF/views/css/index.css"%></style>
+    <script>
+        $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
 </head>
 <body>
 <div class="container-xl">
@@ -25,7 +30,7 @@
                         <h2>Автонарушители</h2>
                     </div>
                     <div class="col-sm-7">
-                        <a href="#" class="btn btn-secondary"><i class="material-icons">&#xE147;</i>
+                        <a href="<c:url value='/create'/>" class="btn btn-secondary"><i class="material-icons">&#xE147;</i>
                             <span>Добавить нарушение</span></a>
                     </div>
                 </div>
@@ -36,6 +41,7 @@
                     <th class="col">Вид нарушения</th>
                     <th class="col">Описание нарушения</th>
                     <th class="col">Место нарушения</th>
+                    <th class="col">Действие</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -44,6 +50,10 @@
                         <td><c:out value="${accident.name}"/></td>
                         <td><c:out value="${accident.text}"/></td>
                         <td><c:out value="${accident.address}"/></td>
+                        <td>
+                            <a href="<c:url value='/edit?id=${accident.id}'/>" class="settings" title="" data-toggle="tooltip" data-original-title="Редактировать"><i class="material-icons"></i></a>
+                            <a href="#" class="delete" title="" data-toggle="tooltip" data-original-title="Удалить"><i class="material-icons"></i></a>
+                        </td>
                     </tr>
                 </c:forEach>
                 </tbody>

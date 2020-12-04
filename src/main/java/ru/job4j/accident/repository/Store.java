@@ -8,4 +8,8 @@ public interface Store {
     void add(Accident accident);
 
     Collection<Accident> getAll();
+
+    Accident getById(int id);
+
+    void update(Accident accident);
 }

@@ -21,4 +21,12 @@ public class AccidentService {
     public Collection<Accident> getAll() {
         return accidentMem.getAll();
     }
+
+    public Accident getAccidentById(int id) {
+        return accidentMem.getById(id);
+    }
+
+    public void update(Accident accident) {
+        accidentMem.update(accident);
+    }
 }
