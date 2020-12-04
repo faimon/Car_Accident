@@ -10,8 +10,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 @Repository
 public class AccidentMem implements Store {
-    private static Map<Integer, Accident> accidents = new ConcurrentHashMap<>();
-    private static AtomicInteger COUNT = new AtomicInteger(0);
+    private static final Map<Integer, Accident> accidents = new ConcurrentHashMap<>();
+    private static final AtomicInteger COUNT = new AtomicInteger(0);
 
     public AccidentMem() {
         this.add(new Accident(1, "narushenie1", "text1", "address1"));
