@@ -39,6 +39,16 @@
             </div>
         </div>
 
+        <div class="form-group">
+            <div class="col-md-4">
+                <select name="rIds" multiple>
+                    <c:forEach var="rule" items="${rules}" >
+                        <option value="${rule.id}">${rule.name}</option>
+                    </c:forEach>
+                </select>
+            </div>
+        </div>
+
         <!-- Text input-->
         <div class="form-group">
             <div class="col-md-4">
