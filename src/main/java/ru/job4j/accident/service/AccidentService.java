@@ -17,7 +17,8 @@ public class AccidentService {
         this.accidentMem = accidentMem;
     }
 
-    public void saveAccident(Accident accident) {
+    public void saveAccident(Accident accident, String[] rulesId) {
+        accident.setRules(accidentMem.parseRules(rulesId));
         accidentMem.add(accident);
     }
 
@@ -39,9 +40,5 @@ public class AccidentService {
 
     public List<Rule> getAllRules() {
         return accidentMem.getAllRules();
-    }
-
-    public List<Rule> parseRules(String[] rulesId) {
-        return accidentMem.parseRules(rulesId);
     }
 }
