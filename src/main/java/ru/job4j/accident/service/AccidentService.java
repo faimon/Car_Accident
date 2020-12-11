@@ -1,13 +1,11 @@
 package ru.job4j.accident.service;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 import ru.job4j.accident.model.Accident;
-import ru.job4j.accident.model.AccidentType;
-import ru.job4j.accident.model.Rule;
 import ru.job4j.accident.repository.AccidentMem;
 
 import java.util.Collection;
-import java.util.List;
 
 @Service
 public class AccidentService {
@@ -17,8 +15,7 @@ public class AccidentService {
         this.accidentMem = accidentMem;
     }
 
-    public void saveAccident(Accident accident, String[] rulesId) {
-        accident.setRules(accidentMem.parseRules(rulesId));
+    public void saveAccident(Accident accident, MultipartFile file) {
         accidentMem.add(accident);
     }
 
@@ -34,11 +31,4 @@ public class AccidentService {
         accidentMem.update(accident);
     }
 
-    public List<AccidentType> getTypes() {
-        return accidentMem.getTypes();
-    }
-
-    public List<Rule> getAllRules() {
-        return accidentMem.getAllRules();
-    }
 }

@@ -41,26 +41,22 @@
             <table class="table table-striped table-hover">
                 <thead>
                 <tr>
-                    <th class="col">Вид нарушения</th>
-                    <th class="col">Тип нарушения</th>
                     <th class="col">Описание нарушения</th>
-                    <th class="col">Статьи нарушения</th>
-                    <th class="col">Место нарушения</th>
+                    <th class="col">Адрес нарушения</th>
+                    <th class="col">Номер автомобиля</th>
+                    <th class="col">Фото нарушения</th>
+                    <th class="col">Статус нарушения</th>
                     <th class="col">Действие</th>
                 </tr>
                 </thead>
                 <tbody>
                 <c:forEach items="${accidents}" var="accident">
                     <tr>
-                        <td><c:out value="${accident.name}"/></td>
-                        <td><c:out value="${accident.type.name}"/></td>
-                        <td><c:out value="${accident.text}"/></td>
-                        <td>
-                            <c:forEach items="${accident.rules}" var="rule">
-                                <c:out value="${rule.name}"/>
-                            </c:forEach>
-                        </td>
+                        <td><c:out value="${accident.description}"/></td>
                         <td><c:out value="${accident.address}"/></td>
+                        <td><c:out value="${accident.carNumber}"/></td>
+                        <td><c:out value="${accident.photoPath}"/></td>
+                        <td><c:out value="${accident.status}"/></td>
                         <td>
                             <a href="<c:url value='/edit?id=${accident.id}'/>" class="settings" title=""
                                data-toggle="tooltip" data-original-title="Редактировать"><i class="material-icons"></i></a>

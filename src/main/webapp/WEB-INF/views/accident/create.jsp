@@ -15,7 +15,7 @@
 </head>
 <body>
 <form class="form-horizontal" style="width:60%" action="<c:url value='/save'/>"
-      method="post">
+      method="post" enctype="multipart/form-data">
     <fieldset>
 
         <!-- Form Name -->
@@ -24,35 +24,7 @@
         <!-- Text input-->
         <div class="form-group">
             <div class="col-md-4">
-                <input id="name" type="text" name="name" placeholder="Вид нарушения"
-                       class="form-control input-md">
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-4">
-                <select name="type.id">
-                    <c:forEach var="type" items="${types}" >
-                        <option value="${type.id}">${type.name}</option>
-                    </c:forEach>
-                </select>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-4">
-                <select name="rIds" multiple>
-                    <c:forEach var="rule" items="${rules}" >
-                        <option value="${rule.id}">${rule.name}</option>
-                    </c:forEach>
-                </select>
-            </div>
-        </div>
-
-        <!-- Text input-->
-        <div class="form-group">
-            <div class="col-md-4">
-                <input id="text" type="text" name="text" placeholder="Описание нарушения"
+                <input id="name" type="text" name="description" placeholder="Описание нарушения"
                        class="form-control input-md">
             </div>
         </div>
@@ -60,8 +32,23 @@
         <!-- Text input-->
         <div class="form-group">
             <div class="col-md-4">
-                <input id="address" type="text" name="address" placeholder="Место нарушения"
+                <input id="text" type="text" name="address" placeholder="Адрес нарушения"
                        class="form-control input-md">
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <div class="col-md-4">
+                <input id="address" type="text" name="carNumber" placeholder="Номер автомобиля"
+                       class="form-control input-md">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-4">
+                <label class="control-label" for="img">Добавить фотографию</label>
+                <input id="img" type='file' name='file'>
             </div>
         </div>
 
@@ -71,6 +58,7 @@
                 <button type="submit" id="singlebutton" name="singlebutton" class="btn btn-primary">Добавить нарушение
                 </button>
             </div>
+        </div>
     </fieldset>
 </form>
 </body>

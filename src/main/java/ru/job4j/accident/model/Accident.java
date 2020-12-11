@@ -1,38 +1,24 @@
 package ru.job4j.accident.model;
 
-import java.util.List;
 import java.util.Objects;
 
 public class Accident {
     private int id;
-    private String name;
-    private String text;
+    private String description;
+    private String carNumber;
     private String address;
-    private AccidentType type;
-    private List<Rule> rules;
+    private String photoPath;
+    private String status;
 
-    public Accident(String name, String text, String address, AccidentType type, List<Rule> rules) {
-        this.name = name;
-        this.text = text;
+    public Accident(String description, String carNumber, String address, String photoPath, String status) {
+        this.description = description;
+        this.carNumber = carNumber;
         this.address = address;
-        this.type = type;
-        this.rules = rules;
+        this.photoPath = photoPath;
+        this.status = status;
     }
 
-    public List<Rule> getRules() {
-        return rules;
-    }
-
-    public void setRules(List<Rule> rules) {
-        this.rules = rules;
-    }
-
-    public AccidentType getType() {
-        return type;
-    }
-
-    public void setType(AccidentType type) {
-        this.type = type;
+    public Accident() {
     }
 
     public int getId() {
@@ -43,20 +29,20 @@ public class Accident {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getDescription() {
+        return description;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public String getText() {
-        return text;
+    public String getCarNumber() {
+        return carNumber;
     }
 
-    public void setText(String text) {
-        this.text = text;
+    public void setCarNumber(String carNumber) {
+        this.carNumber = carNumber;
     }
 
     public String getAddress() {
@@ -67,26 +53,49 @@ public class Accident {
         this.address = address;
     }
 
+    public String getPhotoPath() {
+        return photoPath;
+    }
+
+    public void setPhotoPath(String photoPath) {
+        this.photoPath = photoPath;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Accident accident = (Accident) o;
-        return id == accident.id;
+        return id == accident.id &&
+                Objects.equals(description, accident.description) &&
+                Objects.equals(carNumber, accident.carNumber) &&
+                Objects.equals(address, accident.address) &&
+                Objects.equals(photoPath, accident.photoPath) &&
+                Objects.equals(status, accident.status);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return Objects.hash(id, description, carNumber, address, photoPath, status);
     }
 
     @Override
     public String toString() {
         return "Accident{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
-                ", text='" + text + '\'' +
+                ", description='" + description + '\'' +
+                ", carNumber='" + carNumber + '\'' +
                 ", address='" + address + '\'' +
+                ", photoPath='" + photoPath + '\'' +
+                ", status='" + status + '\'' +
                 '}';
     }
 }
