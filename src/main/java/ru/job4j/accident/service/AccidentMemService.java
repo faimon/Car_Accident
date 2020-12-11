@@ -9,10 +9,10 @@ import ru.job4j.accident.repository.AccidentMem;
 import java.util.Collection;
 
 @Service
-public class AccidentService {
+public class AccidentMemService {
     private final AccidentMem accidentMem;
 
-    public AccidentService(AccidentMem accidentMem) {
+    public AccidentMemService(AccidentMem accidentMem) {
         this.accidentMem = accidentMem;
     }
 

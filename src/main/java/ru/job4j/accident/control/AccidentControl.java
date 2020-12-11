@@ -9,17 +9,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import ru.job4j.accident.model.Accident;
 import ru.job4j.accident.files.AccidentImage;
-import ru.job4j.accident.service.AccidentService;
+import ru.job4j.accident.service.AccidentJdbcService;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @Controller
 public class AccidentControl {
-    private final AccidentService accidentService;
+    private final AccidentJdbcService jdbcService;
 
-    public AccidentControl(AccidentService accidentService) {
-        this.accidentService = accidentService;
+    public AccidentControl(AccidentJdbcService jdbcService) {
+        this.jdbcService = jdbcService;
     }
 
     @GetMapping("/create")
@@ -39,25 +39,25 @@ public class AccidentControl {
 
     @GetMapping("/delete")
     public String delete(@RequestParam("id") int id) {
-        accidentService.delete(id);
+        jdbcService.deleteById(id);
         return "redirect:/";
     }
 
     @PostMapping("/save")
     public String save(@ModelAttribute Accident accident, @RequestParam("file") MultipartFile file) {
-        accidentService.saveAccident(accident, file);
+        jdbcService.save(accident, file);
         return "redirect:/";
     }
 
     @GetMapping("/edit")
     public String edit(@RequestParam("id") int id, Model model) {
-        model.addAttribute("accident", accidentService.getAccidentById(id));
+        //  model.addAttribute("accident", accidentMemService.getAccidentById(id));
         return "accident/edit";
     }
 
     @PostMapping("/edit")
     public String update(@ModelAttribute Accident accident) {
-        accidentService.update(accident);
+        //    accidentMemService.update(accident);
         return "redirect:/";
     }
 }
