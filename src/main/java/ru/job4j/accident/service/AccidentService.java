@@ -3,6 +3,7 @@ package ru.job4j.accident.service;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import ru.job4j.accident.model.Accident;
+import ru.job4j.accident.files.AccidentImage;
 import ru.job4j.accident.repository.AccidentMem;
 
 import java.util.Collection;
@@ -16,6 +17,8 @@ public class AccidentService {
     }
 
     public void saveAccident(Accident accident, MultipartFile file) {
+        AccidentImage.saveImage(file);
+        accident.setPhotoPath(file.getOriginalFilename());
         accidentMem.add(accident);
     }
 
@@ -31,4 +34,7 @@ public class AccidentService {
         accidentMem.update(accident);
     }
 
+    public void delete(int id) {
+        accidentMem.deleteById(id);
+    }
 }

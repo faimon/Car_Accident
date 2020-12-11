@@ -21,28 +21,9 @@
         <!-- Form Name -->
         <legend class="text ml-3">Редактировать нарушение</legend>
 
-        <!-- Text input-->
         <div class="form-group">
             <div class="col-md-4">
-                <input id="name" type="text" name="name" value="${accident.name}"
-                       class="form-control input-md">
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-4">
-                <select name="type.id">
-                    <c:forEach var="type" items="${types}" >
-                        <option value="${type.id}">${type.name}</option>
-                    </c:forEach>
-                </select>
-            </div>
-        </div>
-
-        <!-- Text input-->
-        <div class="form-group">
-            <div class="col-md-4">
-                <input id="text" type="text" name="text" value="${accident.text}"
+                <input id="name" type="text" name="description" value="${accident.description}"
                        class="form-control input-md">
             </div>
         </div>
@@ -50,7 +31,23 @@
         <!-- Text input-->
         <div class="form-group">
             <div class="col-md-4">
-                <input id="address" type="text" name="address" value="${accident.address}"
+                <input id="text" type="text" name="address" value="${accident.address}"
+                       class="form-control input-md">
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <div class="col-md-4">
+                <input id="address" type="text" name="carNumber" value="${accident.carNumber}"
+                       class="form-control input-md">
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <div class="col-md-4">
+                <input id="status" type="text" name="status" value="${accident.status}"
                        class="form-control input-md">
             </div>
         </div>
@@ -61,6 +58,7 @@
                 <button type="submit" id="singlebutton" name="singlebutton" class="btn btn-primary">Добавить нарушение
                 </button>
             </div>
+        </div>
     </fieldset>
 </form>
 </body>

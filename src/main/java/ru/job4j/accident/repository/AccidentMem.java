@@ -14,7 +14,7 @@ public class AccidentMem {
 
     public AccidentMem() {
         this.add(new Accident("парковка под знаком остановка запрещена",
-                "о162ру", "Ленина 23", "123.jpg", "Принята"));
+                "о162ру", "Ленина 23", "bmw m5.jpg", "Принята"));
         this.add(new Accident("сбит пешеход",
                 "о362ру", "Ленина 23", "123.jpg", "Принята"));
     }
@@ -34,7 +34,11 @@ public class AccidentMem {
     }
 
     public void update(Accident accident) {
+        accident.setPhotoPath(accidents.get(accident.getId()).getPhotoPath());
         accidents.put(accident.getId(), accident);
     }
 
+    public void deleteById(int id) {
+        accidents.remove(id);
+    }
 }

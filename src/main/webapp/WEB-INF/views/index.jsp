@@ -55,12 +55,18 @@
                         <td><c:out value="${accident.description}"/></td>
                         <td><c:out value="${accident.address}"/></td>
                         <td><c:out value="${accident.carNumber}"/></td>
-                        <td><c:out value="${accident.photoPath}"/></td>
+                        <td>
+                            <a href="<c:url value='/image?filename=${accident.photoPath}'/>">
+                                <img src="<c:url value='/image?filename=${accident.photoPath}'/>"
+                                     style="width:100px;height:100px">
+                            </a>
+                        </td>
                         <td><c:out value="${accident.status}"/></td>
                         <td>
                             <a href="<c:url value='/edit?id=${accident.id}'/>" class="settings" title=""
                                data-toggle="tooltip" data-original-title="Редактировать"><i class="material-icons"></i></a>
-                            <a href="#" class="delete" title="" data-toggle="tooltip" data-original-title="Удалить"><i
+                            <a href="<c:url value='/delete?id=${accident.id}'/>" class="delete" title=""
+                               data-toggle="tooltip" data-original-title="Удалить"><i
                                     class="material-icons"></i></a>
                         </td>
                     </tr>
