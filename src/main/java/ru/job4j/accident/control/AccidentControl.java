@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import ru.job4j.accident.model.Accident;
 import ru.job4j.accident.files.AccidentImage;
+import ru.job4j.accident.service.AccidentHibernateService;
 import ru.job4j.accident.service.AccidentJdbcService;
 
 import javax.servlet.http.HttpServletResponse;
@@ -16,10 +17,10 @@ import java.io.IOException;
 
 @Controller
 public class AccidentControl {
-    private final AccidentJdbcService jdbcService;
+    private final AccidentHibernateService service;
 
-    public AccidentControl(AccidentJdbcService jdbcService) {
-        this.jdbcService = jdbcService;
+    public AccidentControl(AccidentHibernateService service) {
+        this.service = service;
     }
 
     @GetMapping("/create")
@@ -39,13 +40,13 @@ public class AccidentControl {
 
     @GetMapping("/delete")
     public String delete(@RequestParam("id") int id) {
-        jdbcService.deleteById(id);
+        service.delete(id);
         return "redirect:/";
     }
 
     @PostMapping("/save")
     public String save(@ModelAttribute Accident accident, @RequestParam("file") MultipartFile file) {
-        jdbcService.save(accident, file);
+        service.save(accident, file);
         return "redirect:/";
     }
 
