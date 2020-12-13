@@ -53,6 +53,13 @@
         </div>
 
         <div class="form-group">
+            <div class="col-md-4">
+                <input hidden type="text" name="photoPath" value="${accident.photoPath}"
+                       class="form-control input-md">
+            </div>
+        </div>
+
+        <div class="form-group">
             <label class="col-md-4 control-label" for="singlebutton"></label>
             <div class="col-md-4">
                 <button type="submit" id="singlebutton" name="singlebutton" class="btn btn-primary">Добавить нарушение

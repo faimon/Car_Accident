@@ -61,7 +61,14 @@
                                      style="width:100px;height:100px">
                             </a>
                         </td>
-                        <td><c:out value="${accident.status}"/></td>
+                        <td>
+                            <c:if test="${accident.status == 'Принята'}">
+                            <span class="badge badge-success"> <c:out value="${accident.status}"/>
+                                </c:if></span>
+                                <c:if test="${accident.status == 'Завершена'}">
+                                <span class="badge badge-secondary"> <c:out value="${accident.status}"/>
+                                    </c:if></span>
+                        </td>
                         <td>
                             <a href="<c:url value='/edit?id=${accident.id}'/>" class="settings" title=""
                                data-toggle="tooltip" data-original-title="Редактировать"><i class="material-icons"></i></a>
