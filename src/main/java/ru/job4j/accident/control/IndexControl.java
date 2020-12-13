@@ -8,6 +8,8 @@ import ru.job4j.accident.service.AccidentHibernateService;
 import ru.job4j.accident.service.AccidentJdbcService;
 import ru.job4j.accident.service.AccidentSpringDataService;
 
+import java.security.Principal;
+
 @Controller
 public class IndexControl {
     private final AccidentSpringDataService service;
@@ -17,8 +19,9 @@ public class IndexControl {
     }
 
     @GetMapping("/")
-    public String index(Model model) {
+    public String index(Model model, Principal user) {
         model.addAttribute("accidents", service.getAll());
+        model.addAttribute("username", user.getName());
         return "index";
     }
 }

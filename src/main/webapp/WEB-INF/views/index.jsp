@@ -32,6 +32,7 @@
                         <h2>Автонарушители</h2>
                     </div>
                     <div class="col-sm-7">
+                        Добро пожаловать, ${username} ! <a href="<c:url value='/logout'/>" class="btn btn-info">Выйти </a>
                         <a href="<c:url value='/create'/>" class="btn btn-secondary"><i
                                 class="material-icons">&#xE147;</i>
                             <span>Добавить нарушение</span></a>
@@ -45,7 +46,7 @@
                     <th class="col">Адрес нарушения</th>
                     <th class="col">Номер автомобиля</th>
                     <th class="col">Фото нарушения</th>
-                    <th class="col">Статус нарушения</th>
+                    <th class="col">Статус заявки</th>
                     <th class="col">Действие</th>
                 </tr>
                 </thead>
@@ -65,9 +66,9 @@
                             <c:if test="${accident.status == 'Принята'}">
                             <span class="badge badge-success"> <c:out value="${accident.status}"/>
                                 </c:if></span>
-                                <c:if test="${accident.status == 'Завершена'}">
-                                <span class="badge badge-secondary"> <c:out value="${accident.status}"/>
-                                    </c:if></span>
+                            <c:if test="${accident.status == 'Завершена'}">
+                            <span class="badge badge-secondary"> <c:out value="${accident.status}"/>
+                                </c:if></span>
                         </td>
                         <td>
                             <a href="<c:url value='/edit?id=${accident.id}'/>" class="settings" title=""
