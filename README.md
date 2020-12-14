@@ -14,3 +14,15 @@
 * Hibernate, JDBC, PostgreSQL.
 * JSP, JSTL, Tomcat.
 
+Главная страница - показываются все заявки с автонарушениями:
+
+![GitHub Logo](https://github.com/faimon/job4j_car_accident/blob/master/screenshots/main%20page.png?raw=true)
+
+Страница с добавлением автонарушения:
+
+![GitHub Logo](https://github.com/faimon/job4j_car_accident/blob/master/screenshots/add%20.png?raw=true)
+
+Страница с авторизацией:
+
+![GitHub Logo](https://github.com/faimon/job4j_car_accident/blob/master/screenshots/auth%20page.png?raw=true)
+
