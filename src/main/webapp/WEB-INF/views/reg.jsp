@@ -27,36 +27,30 @@
             }
         }
     </script>
-    <title>Проект автонарушители</title>
+    <title>Автонарушители</title>
 </head>
 <body>
 <div class="container pt-3">
+
     <div class="row">
-        <div class="card" style="width: 40%">
+        <div class="card" style="width: 100%">
             <div class="card-header">
-                Авторизация
+                Регистрация нового пользователя
             </div>
-            <div class="card-body">
-                <form action="<c:url value='/login'/>" method="post">
+            <div class="card-body" style="width: 40%">
+                <form action="<%=request.getContextPath()%>/reg" method="post">
                     <div class="form-group">
                         <input type="text" class="form-control" name="username" id="login" placeholder="Логин">
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" name="password" id="password" placeholder="Пароль">
                     </div>
-                    <button type="submit" class="btn btn-primary" onclick="return validate()">Войти
+                    <button type="submit" class="btn btn-primary" onclick="return validate()">Зарегистрироваться
                     </button>
-                    <a href="<c:url value='/reg'/>" class="link">Регистрация</a>
                 </form>
-                <c:if test="${not empty errorMessage}">
-                    <div style="color:red; font-weight: bold; margin: 30px 0px;">
-                            ${errorMessage}
-                    </div>
-                </c:if>
             </div>
         </div>
     </div>
-    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 </div>
 </body>
 </html>
