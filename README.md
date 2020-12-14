@@ -1,5 +1,5 @@
 # Проект "Автонарушители"
-[![Build Status](https://travis-ci.org/faimon/job4j_car_accident.svg?branch=master)](https://travis-ci.org/faimon/job4j_car_accident)
+[![Build Status](https://travis-ci.org/faimon/Car_Accident.svg?branch=master)](https://travis-ci.org/faimon/job4j_car_accident)
 
 ### Web приложение для подачи заявлений об автонарушениях.
 **Функциональность:**
